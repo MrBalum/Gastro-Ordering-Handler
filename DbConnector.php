@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
-$username = 'USERNAME';
-$password = "PASSWORT";
-$database = 'DATABASENAME';
+$username = 'root';
+$password = "root";
+$database = 'Gastro-Ordering-Handler';
 $mysqliObject = new mysqli($host, $username, $password);
     if (mysqli_connect_errno())
     {
