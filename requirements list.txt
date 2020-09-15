@@ -1,0 +1,13 @@
+List of requirements
+* The insertion of receipts must be possible
+* Receipts must contain the invoice number and the value of goods as well as the customer name.
+* Which employees work in the company
+* For an employee only the first name and surname are relevant.
+* Receipts must be assigned to employees.
+* It should be possible to assign receipts to one time of day during business hours.
+* An overview of the times is necessary.
+* It should also be possible to release times again. 
+* Times should be blocked as soon as the maximum volume is reached.
+* Receipts should be removed from individual times.
+
+
