@@ -10,7 +10,7 @@ List of requirements
 * A Receiptoverview is necessary.
 * Times should be blocked as soon as the maximum volume is reached.
 * Receipts should be removed from individual times.
-
+x
 NE step 1:
 
 * The insertion of receipts must be possible 
@@ -50,7 +50,21 @@ NE step 3:
 * A //Receiptoverview\\ is necessary. 
 * //Time realese\\ should possible.
 * //Time limitation\\ is necessary.
-* //Receipt cancellation\\ is necessary.  
+* //Receipt cancdellation\\ is necessary. 
+
+
+NE step 4:
+
+* The //insertion of receipts\\ must be possible 
+* //Receipts\\ must contain the //invoice number\\ and the //value of goods\\ as well as the //customer name\\ .
+* Which //employees\\  work in the company.
+* For an //employee\\  only the //first name\\ and //surname\\ are relevant.
+* //Receipts\\ must be assigned to //employees\\.
+* //Receiptassignment\\ to times should be possible.
+* A //Receiptoverview\\ is necessary. 
+* //Time realese\\ should possible.
+* //Time limitation\\ is necessary.
+* //Receipt cancdellation\\ is necessary.   
 
 
 
