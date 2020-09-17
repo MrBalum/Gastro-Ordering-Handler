@@ -98,7 +98,7 @@ Receipts ---->  invoice number, value of goods, customer name, employee_id, canc
 
 Employee ---->  surname, firstname,
 
-times ----> time, max orders, locked
+Times ----> time, max orders, locked,
 
 
 
