@@ -92,6 +92,17 @@ NE step 6:
 * //Time limitation\\ is necessary.
 * //Receipt cancellation\\ is necessary.
 
+NE step 7:
+
+Receipts ---->  invoice number, value of goods, customer name, employee_id, canceled
+
+Employee ---->  surname, firstname,
+
+times ----> time, locked, max orders, locked
+
+
+
+
 
 
 
