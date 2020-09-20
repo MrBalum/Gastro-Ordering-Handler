@@ -20,7 +20,7 @@ class GastroOrderingHandlerDbConnector
     /**
      * Constant for the database name in MySQL.
      */
-    const DATABASE_NAME = 'Gastro-Ordering-Handler';
+    const DATABASE_NAME = 'gastro-ordering-handler';
 
     /**
      * Mysqli object
@@ -47,13 +47,12 @@ class GastroOrderingHandlerDbConnector
      */
     private function connectDatabase()
     {
-        $this->mysqliObject = new mysqli(self::HOST, self::USER_NAME, self::USER_PASSWORD);
+        $this->mysqliObject = new mysqli(self::HOST, self::USER_NAME, self::USER_PASSWORD,self::DATABASE_NAME);
         if (mysqli_connect_errno()) {
             echo('Can\'t reach database. The following error occurred: "' . mysqli_connect_errno() . ' : ' . mysqli_connect_error() . '"');
         }
-        if ($this->mysqliObject->select_db(self::DATABASE_NAME)) {
-            die('Can\'t open database "' . self::DATABASE_NAME . '". Are you sure it exists? ');
-        }
+
+
         if (!$this->mysqliObject->set_charset("utf8")) {
             echo("Error loading character set utf8: %s\n" . $this->mysqliObject->errno);
         }
@@ -66,20 +65,20 @@ class GastroOrderingHandlerDbConnector
      */
     public function getAllDrivers()
     {
-        $query="SELECT name,lastname,comment FROM drivers ";
+        $query="SELECT id, sur_name,first_name FROM Employee ";
         /* @var mysqli_result $result */
         $result = $this->mysqliObject->query($query);
         if ($result) {
-            $return = $result->fetch_assoc();
-            print_r($return);
-            echo "We are working with MySQL version {$return['version']}";
+            $return = $result->fetch_all();
+            echo "<pre>";
+            var_dump($return);
+            echo "</pre>";
         } else {
             die('Cant \' execute query:'.$query);
 
 
         }
         // Close the database connection
-        var_dump('hallo');
         $result->close();
 
     }
