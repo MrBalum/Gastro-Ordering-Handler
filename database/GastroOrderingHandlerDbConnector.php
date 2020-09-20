@@ -37,8 +37,7 @@ class GastroOrderingHandlerDbConnector
         $this->connectDatabase();
         //get all drivers
         $this->getAllDrivers();
-        //close database connection
-        $this->mysqliObject->close();
+
     }
 
     /**
@@ -61,7 +60,9 @@ class GastroOrderingHandlerDbConnector
     }
 
     /**
-     * Outputs all Drivers and frees afterward the result set
+     * Outputs all Drivers and frees afterward the result set.
+     *
+     *
      */
     public function getAllDrivers()
     {
@@ -70,11 +71,8 @@ class GastroOrderingHandlerDbConnector
         $result = $this->mysqliObject->query($query);
         if ($result) {
             $return = $result->fetch_all();
-            echo "<pre>";
-            var_dump($return);
-            echo "</pre>";
         } else {
-            die('Cant \' execute query:'.$query);
+            throw new mysqli_sql_exception('Cant \' execute query:'.$query);
 
 
         }
@@ -83,6 +81,24 @@ class GastroOrderingHandlerDbConnector
 
     }
 
+    /**
+     * Return all choosable times
+     */
+    public function getAllTimes(){
+        $query= " SELECT id, time, max_orders, locked FROM Time";
+        $result = $this->mysqliObject->query($query);
+        if ($result) {
+            $return = $result->fetch_all();
+        } else {
+            throw new mysqli_sql_exception('Cant \' execute query:'.$query);
+        }
+    }
+
+    public function closeDatabaseConnection(){
+        //close database connection
+
+        $this->mysqliObject->close();
+    }
 
 
 
