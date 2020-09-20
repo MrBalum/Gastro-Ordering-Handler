@@ -1,0 +1,68 @@
+body {
+    background-color: lightcyan;
+}
+input.larger {
+    transform: scale(3);
+    margin: 30px;
+}
+
+#time {
+    font-size: 30pt;
+
+}
+
+#div3 {
+    float: left;
+    width: 15%;
+}
+
+#div1 {
+    float: left;
+    width: 30%;
+}
+
+#div2 {
+    float: left;
+    width: 400px;
+    height: 200px;
+}
+
+#div4 {
+    margin-left: 10px ;
+    float: left;
+    width: 30%;
+}
+#div5 {
+    margin-left: 10px;
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+#div6 {
+    border: 3px solid black;
+    height: 40vh;
+}
+
+label {
+    margin-left: 10px;
+    font-size: 15pt;
+}
+
+th {
+    font-size: 15pt;
+}
+tr {
+    font-size: 10pt;
+}
+
+
+.select:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+
+
+
+
+
