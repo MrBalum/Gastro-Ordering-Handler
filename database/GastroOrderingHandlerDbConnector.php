@@ -123,14 +123,31 @@ class GastroOrderingHandlerDbConnector
 
         $query = 'INSERT INTO Receipt (employee_id, time_id, invoice_number, customer_name, value_of_goods,canceled)
                   VALUES(' . $receipt->getEmployeeId() . ',' . $receipt->getTimeId() . ',"' . $receipt->getInvoiceNumber() .
-                            '","' . $receipt->getCustomerName() . '",' . $receipt->getValueOfGoods() . ',"' . $receipt->getCanceled() . '")';
+            '","' . $receipt->getCustomerName() . '",' . $receipt->getValueOfGoods() . ',"' . $receipt->getCanceled() . '")';
         echo $query;
         $this->mysqliObject->query($query);
-        if(mysqli_connect_errno()){
+        if (mysqli_connect_errno()) {
             throw new mysqli_sql_exception('Receipt cannot be saved');
         }
     }
 
+    public function getReceiptByID($id)
+    {
+        $query = 'SELECT id, employee_id, time_id, invoice_number, customer_name, value_of_goods, canceled FROM Receipt WHERE id='.$id;
+        $result = $this->mysqliObject->query($query);
+        if ($result) {
+            $return = $result->fetch_assoc();
+            return $this->buildReceipt($return);
+        } else {
+            throw new mysqli_sql_exception('Cant \' execute query:' . $query);
+        }
+    }
 
+    protected function buildReceipt($return) {
+        $receiptObject = new ReceiptModel();
+        $receiptObject->setId($return['id'])->setCanceled($return['canceled'])->setCustomerName($return['customer_name'])->
+        setEmployeeId($return['employee_id'])->setTimeId($return['time_id'])->setValueOfGoods($return['value_of_goods'])->setInvoiceNumber($return['invoice_number']);
+        return $receiptObject;
+    }
 }
 
